@@ -1,24 +1,27 @@
 package br.com.precadastro.rivalix.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "precadastro")
 public class Precadastro {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Corrigido aqui
-
-    @Column(name = "id")
+@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "nome", length=200, nullable=true)
+
+    @JsonProperty("nome")
+    @Column(name = "nome", length = 200, nullable = true)
     private String nome;
-    @Column(name = "email", length=50, nullable=true)
+
+    @JsonProperty("email")
+    @Column(name = "email", length = 50, nullable = true)
     private String email;
 
     public Integer getId() {
